@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gray & White Page with Smooth Scroll</title>
+    <!-- 引用 Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* 自定義樣式 */
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        /* 主 Banner 設定 */
+        .banner {
+            background-color: #e0e0e0;
+            height: 25vh; /* 縮小為 25vh */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        /* 統一字體樣式 */
+        .banner h1, .section-banner h2, .banner-links a {
+            font-family: 'Arial', sans-serif; /* 統一字體 */
+            font-weight: bold;
+        }
+
+        .banner h1 {
+            color: #333;
+        }
+
+        .banner-links {
+            background-color: #a7a8aa; /* 修改為 #a7a8aa */
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            left: 0; /* 置左 */
+            width: auto;
+            text-align: left;
+            margin-bottom: 20px; /* 增加底部空間 */
+        }
+
+        .banner-links a {
+            margin: 0 15px;
+            color: #000; /* 字體顏色修改為黑色 */
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* 區段 Banner 100vh 且無留白 */
+        .section-banner {
+            background-color: #d6d6d6;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 0; /* 不留白 */
+        }
+
+        .section-banner h2 {
+            color: #555;
+        }
+
+        /* 區段內容外層白色區塊，高度100vh */
+        .section-wrapper {
+            background-color: #fff;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 區段內容縮小且保持深灰色 */
+        .section {
+            background-color: #53565b; /* 修改為 #53565b */
+            color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 0 15%; /* 兩側留白 */
+            max-width: 800px; /* 控制內容區塊寬度 */
+        }
+
+        .section h2 {
+            color: #fff;
+        }
+
+        .section p {
+            color: #ccc;
+            font-family: 'Times New Roman', serif; /* 內容的字體 */
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                margin: 0 5%; /* 在較小螢幕上縮小左右留白 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 主 Banner -->
+    <div class="banner" id="home">
+        <div class="container">
+            <h1 class="display-4">Welcome to Our Website</h1>
+            <div class="banner-links">
+                <a href="#home" class="scroll-link">Home</a>
+                <a href="#section1" class="scroll-link">Section 1</a>
+                <a href="#section2" class="scroll-link">Section 2</a>
+                <a href="#section3" class="scroll-link">Section 3</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 區段一 Banner -->
+    <section id="section1" class="section-banner">
+        <h2>Section One Banner</h2>
+    </section>
+
+    <!-- 區段一 內容外層白色區塊 -->
+    <div class="section-wrapper">
+        <section class="section">
+            <h2>Section One</h2>
+            <p>This is the content of section one, styled with a dark background and rounded corners, and now smaller in size.</p>
+        </section>
+    </div>
+
+    <!-- 區段二 Banner -->
+    <section id="section2" class="section-banner">
+        <h2>Section Two Banner</h2>
+    </section>
+
+    <!-- 區段二 內容外層白色區塊 -->
+    <div class="section-wrapper">
+        <section class="section">
+            <h2>Section Two</h2>
+            <p>This is the content of section two, styled similarly to section one with a dark background and smaller layout.</p>
+        </section>
+    </div>
+
+    <!-- 區段三 Banner -->
+    <section id="section3" class="section-banner">
+        <h2>Section Three Banner</h2>
+    </section>
+
+    <!-- 區段三 內容外層白色區塊 -->
+    <div class="section-wrapper">
+        <section class="section">
+            <h2>Section Three</h2>
+            <p>This is the content of section three, also with a dark background and smaller rounded layout.</p>
+        </section>
+    </div>
+
+    <!-- 引用 Bootstrap JS 和 jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JS 平滑滾動效果 -->
+    <script>
+        document.querySelectorAll('.scroll-link').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
